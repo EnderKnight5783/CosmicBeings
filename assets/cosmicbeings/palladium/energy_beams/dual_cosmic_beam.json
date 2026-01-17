@@ -1,0 +1,106 @@
+[
+    {
+        "type": "palladium:lightning",
+        "body_part": "right_arm",
+        "segments": 5,
+        "frequency": 2,
+        "spread": 3,
+        "glow_color": "#0000FF",
+        "core_color": "#FF00FF",
+        "rainbow": false,
+        "glow_opacity": 1,
+        "core_opacity": 1,
+        "bloom": 2,
+        "size": 3,
+        "normal_transparency": false,
+        "rotation": 0,
+        "rotation_speed": 0,
+        "visibility": {
+            "first_person": false,
+            "third_person": true
+        },
+        "offset": [
+            -1,
+            -10,
+            0
+        ]
+    },
+    {
+        "type": "palladium:lightning",
+        "body_part": "left_arm",
+        "segments": 5,
+        "frequency": 2,
+        "spread": 3,
+        "glow_color": "#0000FF",
+        "core_color": "#FF00FF",
+        "rainbow": false,
+        "glow_opacity": 1,
+        "core_opacity": 1,
+        "bloom": 2,
+        "size": 3,
+        "normal_transparency": false,
+        "rotation": 0,
+        "rotation_speed": 0,
+        "visibility": {
+            "first_person": false,
+            "third_person": true
+        },
+        "offset": [
+            1,
+            -10,
+            0
+        ]
+    },
+    {
+        "type": "palladium:lightning",
+        "body_part": "right_arm",
+        "segments": 5,
+        "frequency": 2,
+        "spread": 3,
+        "glow_color": "#0000FF",
+        "core_color": "#FF00FF",
+        "rainbow": false,
+        "glow_opacity": 1,
+        "core_opacity": 1,
+        "bloom": 2,
+        "size": 3,
+        "normal_transparency": false,
+        "rotation": 0,
+        "rotation_speed": 0,
+        "visibility": {
+            "first_person": true,
+            "third_person": false
+        },
+        "offset": [
+            -2,
+            -1,
+            0
+        ]
+    },
+    {
+        "type": "palladium:lightning",
+        "body_part": "left_arm",
+        "segments": 5,
+        "frequency": 2,
+        "spread": 3,
+        "glow_color": "#0000FF",
+        "core_color": "#FF00FF",
+        "rainbow": false,
+        "glow_opacity": 1,
+        "core_opacity": 1,
+        "bloom": 2,
+        "size": 3,
+        "normal_transparency": false,
+        "rotation": 0,
+        "rotation_speed": 0,
+        "visibility": {
+            "first_person": true,
+            "third_person": false
+        },
+        "offset": [
+            2,
+            -1,
+            0
+        ]
+    }
+]

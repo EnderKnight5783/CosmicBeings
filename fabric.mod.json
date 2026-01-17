@@ -1,0 +1,13 @@
+{
+    "schemaVersion": 1,
+    "authors": [
+        "Xydurth"
+    ],
+    "environment": "*",
+    "id": "cosmicbeings",
+    "version": "1.0.0",
+    "name": "Cosmic Beings",
+    "description": "A cosmic addon for Palladium!",
+    "icon": "logo.png",
+    "license": "All rights reserved"
+}

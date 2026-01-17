@@ -1,0 +1,403 @@
+{
+    "name": "Cosmic Seer",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/tinted_glass.png",
+    "icon": "minecraft:nether_star",
+    "gui_display_type": "tree",
+    "abilities": {
+        "cosmic_root": {
+        "type": "palladium:dummy",
+        "icon": "minecraft:nether_star",
+        "title": "Cosmic Beginnings",
+        "bar_color": "purple",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [0, 0],
+        "description": "You are a chosen being.",
+        "conditions": {
+            "enabling": [],
+            "unlocking": []
+        }
+        },
+        "cosmic_meteor": {
+            "type": "palladium:command",
+            "icon": "minecraft:fire_charge",
+            "title": "Cosmic Meteor",
+            "bar_color": "Purple",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "gui_position": [1, 0],
+            "description": "Fire a cosmic meteor at your foes.",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "execute as @s at @s anchored eyes positioned ^ ^ ^0.5 summon fireball store success entity @s ExplosionPower byte 3 run damage @s 0 player_attack by @p"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                    "type": "palladium:action",
+                    "cooldown": 5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 10,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_root"
+                    }
+                ]
+            }
+        },
+        "cosmic_beam": {
+            "type": "palladium:energy_beam",
+            "icon": "minecraft:end_rod",
+            "title": "Cosmic Beam",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "gui_position": [1, -1],
+            "description": "Fire a beam of pure cosmic energy.",
+            "energy_beam": "cosmicbeings:dual_cosmic_beam",
+            "damage_type": "null",
+            "damage": 10,
+            "max_distance": 50,
+            "speed": 1,
+            "set_on_fire_seconds": 0,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "commands_on_block_hit": [],
+            "commands_on_entity_hit": [
+                "execute positioned ~ ~ ~ run effect give @e[limit=1,sort=nearest] minecraft:glowing 10 0 true"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_meteor"
+                    }
+                    
+                ]
+            }
+        },
+        "teleport":{
+            "type": "palladium:projectile",
+            "icon": "minecraft:ender_pearl",
+            "title": "Teleport",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 2,
+            "gui_position": [-1, 0],
+            "description": "Warp away from danger, or right into it!",
+            "entity_type": "minecraft:ender_pearl",
+            "entity_data": "null",
+            "inaccuracy": 0,
+            "velocity": 1.5,
+            "swinging_arm": "main_arm",
+            "damage_from_player": false,
+            "ignore_player_movement": false,
+            "conditions": {
+                "enabling": [
+                    {
+                    "type": "palladium:action",
+                    "cooldown": 20,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_root"
+                    }
+                ]
+            }
+        },
+        "gravity_well":{
+            "type": "palladium:command",
+            "icon": "minecraft:obsidian",
+            "title": "Gravity Well",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 3,
+            "gui_position": [-1, -1],
+            "description": "Bring your enemies to their knees by increasing gravity 10-fold.",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "effect give @e[distance=..25] slowness 15 24 true",
+                "effect give @e[distance=..25] glowing 15 0 true",
+                "effect clear @s slowness",
+                "effect clear @s glowing"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                    "type": "palladium:action",
+                    "cooldown": 600,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 30,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "teleport"
+                    }
+                ]
+            }
+        },
+        "eclipse_void": {
+            "type": "palladium:command",
+            "icon": "minecraft:ender_eye",
+            "title": "Eclipse Void",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "gui_position": [0, -2],
+            "description": "Bring fate down upon all...",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "execute as @s at @e[distance=..50,type=!item] summon minecraft:end_crystal run damage @s 0 minecraft:player_attack"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                    "type": "palladium:action",
+                    "cooldown": 1200,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 50,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "crystal_immunity"
+                    }
+                ]
+            }
+        },
+        "crystal_immunity": {
+            "type": "palladium:damage_immunity",
+            "icon": "minecraft:end_crystal",
+            "title": "Crystal Immunity",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": [0, -1],
+            "description": "You can no longer be harmed by combustion or great heights.",
+            "damage_sources": [
+                "minecraft:is_explosion",
+                "minecraft:is_fall",
+                "minecraft:is_fire"
+            ],
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 50,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_beam"
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "gravity_well"
+                    }
+                ]
+            }
+        },
+        "cosmic_resistance": {
+            "type": "palladium:attribute_modifier",
+            "icon": "minecraft:netherite_chestplate",
+            "title": "Cosmic Resistance",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": [0, 1],
+            "description": "Enhance your resistance to damage.",
+            "attribute": "minecraft:generic.armor",
+            "amount": 10,
+            "operation": 0,
+            "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 10,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_root"
+                    }
+                ]
+            }
+        },
+        "cosmic_strength":{
+            "type": "palladium:attribute_modifier",
+            "icon": "minecraft:netherite_sword",
+            "title": "Cosmic Strength",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": [-1, 1],
+            "description": "Enhance your strength against foes.",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 4,
+            "operation": 0,
+            "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_resistance"
+                    }
+                ]
+            }
+        },
+        "cosmic_flight":{
+            "type": "palladium:attribute_modifier",
+            "icon": "minecraft:feather",
+            "title": "Cosmic Flight",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": -1,
+            "gui_position": [1, 1],
+            "description": "The gravity of this world can no longer hold you down.",
+            "attribute": "palladium:flight_speed",
+            "amount": 1.5,
+            "operation": 0,
+            "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_resistance"
+                    },
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    }
+                ]
+            }
+        },
+        "cosmic_after_trail":{
+            "type": "palladium:trail",
+            "icon": "minecraft:player_head",
+            "title": "Cosmic After Trail",
+            "bar_color": "purple",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "trail": "cosmicbeings:cosmic_after_trail",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                            "type": "palladium:is_hovering_or_flying"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "cosmic_lightning_trail":{
+            "type": "palladium:trail",
+            "icon": "minecraft:lightning_rod",
+            "title": "Cosmic Lightning Trail",
+            "bar_color": "purple",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "trail": "cosmicbeings:cosmic_lightning_trail",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_hovering_or_flying"
+                    }
+                ],
+                "unlocking": []
+            }
+        }
+    }
+}

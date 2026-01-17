@@ -1,0 +1,13 @@
+{
+    "pack": {
+        "id": "cosmicbeings",
+        "pack_format": 15,
+        "description": "A cosmic addon for Palladium!",
+        "version": "1.0.0"
+    },
+    "dependencies": {
+        "common": {},
+        "fabric": {},
+        "forge": {}
+    }
+}
