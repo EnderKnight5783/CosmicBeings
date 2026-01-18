@@ -4,6 +4,14 @@
     "background": "minecraft:textures/block/smooth_basalt.png",
     "icon": "minecraft:ender_eye",
     "gui_display_type": "tree",
+    "energy_bars": {
+        "tele_power": {
+            "max": 200,
+            "auto_increase_per_tick": 5,
+            "auto_increase_interval": 20,
+            "color": "#C9D6D5"
+        }
+    },
     "abilities": {
         "tele_root":{
             "type": "palladium:dummy",
@@ -22,7 +30,7 @@
         },
         "tele_grab":{
             "type": "arrzenhanced:telekinesis",
-            "icon": "minecraft:ender_pearl",
+            "icon": "minecraft:lead",
             "title": "Telekinetic Grab",
             "bar_color": "light_gray",
             "hidden": false,
@@ -30,6 +38,10 @@
             "list_index": 0,
             "gui_position": [0, -1],
             "description": "Grab entities using your telekinetic powers. Force them into the air and throw them around like rag dolls.",
+            "energy_bar_usage": {
+                "energy_bar": "tele_power",
+                "amount": 2
+            },
             "multiplier": 0.12,
             "max_distance": 10,
             "grip_distance": 7,
@@ -44,66 +56,13 @@
                         "cooldown": 0,
                         "key_type": "key_bind",
                         "needs_empty_hand": false
-                    }
-                ],
-                "unlocking": [
-                    {
-                        "type": "palladium:experience_level_buyable",
-                        "xp_level": 10,
-                        "flat_levels": true
                     },
                     {
-                        "type": "palladium:ability_unlocked",
+                        "type": "palladium:energy_bar",
                         "power": "cosmicbeings:telekinesis",
-                        "ability": "tele_root"
-                    }
-                ]
-            }
-        },
-        "tele_hover":{
-            "type": "arrzenhanced:vanilla_flight",
-            "icon": "minecraft:feather",
-            "title": "Telekinetic Hover",
-            "bar_color": "light_gray",
-            "hidden": false,
-            "hidden_in_bar": true,
-            "list_index": -1,
-            "gui_position": [-1, 0],
-            "description": "By constantly pushing yourself upwards, you're able to hover in midair without falling.",
-            "conditions": {
-                "enabling": [],
-                "unlocking": [
-                    {
-                        "type": "palladium:experience_level_buyable",
-                        "xp_level": 10,
-                        "flat_levels": true
-                    },
-                    {
-                        "type": "palladium:ability_unlocked",
-                        "power": "cosmicbeings:telekinesis",
-                        "ability": "tele_root"
-                    }
-                ]
-            }
-        },
-        "tele_field":{
-            "type": "arrzenhanced:forcefield",
-            "icon": "minecraft:glass_pane",
-            "title": "Telekinetic Field",
-            "bar_color": "light_gray",
-            "hidden": false,
-            "hidden_in_bar": false,
-            "list_index": 1,
-            "gui_position": [1, 0],
-            "description": "Create a shield of telekintic force to push away entities and protect yourself from projectiles.",
-            "particleOptions": "0 0 0 1",
-            "conditions": {
-                "enabling": [
-                    {
-                        "type": "palladium:held",
-                        "cooldown": 100,
-                        "key_type": "key_bind",
-                        "needs_empty_hand": false
+                        "energy_bar": "tele_power",
+                        "min": 1,
+                        "max": 200
                     }
                 ],
                 "unlocking": [
@@ -127,13 +86,17 @@
             "bar_color": "light_gray",
             "hidden": false,
             "hidden_in_bar": false,
-            "list_index": 4,
-            "gui_position": [-1, -1],
+            "list_index": 5,
+            "gui_position": [-1, 0],
             "description": "By using even more telekinetic force while hovering, you're able to propel yourself at icncredible speeds.",
             "attribute": "palladium:flight_speed",
             "amount": 1.5,
             "operation": 0,
             "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
+            "energy_bar_usage": {
+                "energy_bar": "tele_power",
+                "amount": 1
+            },
             "conditions": {
                 "enabling": [
                     {
@@ -142,7 +105,58 @@
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:telekinesis",
+                        "energy_bar": "tele_power",
+                        "min": 1,
+                        "max": 200
                     }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 10,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:telekinesis",
+                        "ability": "tele_root"
+                    }
+                ]
+            }
+        },
+        "tele_shove":{
+            "type": "arrzenhanced:aerokinesis",
+            "icon": "minecraft:white_dye",
+            "title": "Telekinetic Shove",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 2,
+            "gui_position": [0, 1],
+            "description": "Push into entities using your telekinetic power, forcing them back block by block.",
+            "energy_bar_usage": {
+                "energy_bar": "tele_power",
+                "amount": 2
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:telekinesis",
+                        "energy_bar": "tele_power",
+                        "min": 1,
+                        "max": 200
+                    }   
                 ],
                 "unlocking": [
                     {
@@ -153,12 +167,52 @@
                     {
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
-                        "ability": "tele_hover"
+                        "ability": "tele_root"
+                    }
+                ]
+            }
+        },
+        "tele_field":{
+            "type": "arrzenhanced:forcefield",
+            "icon": "minecraft:glass_pane",
+            "title": "Telekinetic Field",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "gui_position": [1, 0],
+            "description": "Create a shield of telekintic force to push away entities and protect yourself from projectiles.",
+            "particleOptions": "1 1 1 1",
+            "energy_bar_usage": {
+                "energy_bar": "tele_power",
+                "amount": 2
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:telekinesis",
+                        "energy_bar": "tele_power",
+                        "min": 1,
+                        "max": 200
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 10,
+                        "flat_levels": true
                     },
                     {
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
-                        "ability": "tele_grab"
+                        "ability": "tele_root"
                     }
                 ]
             }
@@ -175,6 +229,10 @@
             "description": "Crush your foes using your telekinetic energy, stopping them in place as they struggle against an invisible force.",
             "first_tick_commands": [],
             "last_tick_commands": [],
+            "energy_bar_usage": {
+                "energy_bar": "tele_power",
+                "amount": 50
+            },
             "commands": [
                 "effect give @e[distance=..20] slowness 15 24 true",
                 "effect give @e[distance=..20] wither 15 1 true",
@@ -187,10 +245,17 @@
                 "enabling": [
                     {
                         "type": "palladium:action",
-                        "cooldown": 100,
+                        "cooldown": 0,
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:telekinesis",
+                        "energy_bar": "tele_power",
+                        "min": 50,
+                        "max": 200
                     }
                 ],
                 "unlocking": [
@@ -208,6 +273,85 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_field"
+                    }
+                ]
+            }
+        },
+        "tele_jump":{
+            "type": "arrzenhanced:high_jump",
+            "icon": "minecraft:rabbit_foot",
+            "title": "Telekinetic Bound",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "gui_position": [-1, 1],
+            "description": "Launch yourself into the air using a brief burst of telekinetic energy.",
+            "energy_bar_usage": {
+                "energy_bar": "tele_power",
+                "amount": 50
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:telekinesis",
+                        "energy_bar": "tele_power",
+                        "min": 50,
+                        "max": 200
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 20,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:telekinesis",
+                        "ability": "tele_shove"
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:telekinesis",
+                        "ability": "tele_flight"
+                    }
+                ]
+            }
+        },
+        "tele_net":{
+            "type": "palladium:damage_immunity",
+            "icon": "minecraft:iron_boots",
+            "title": "Telekinetic Saftey",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": [-1, -1],
+            "description": "By constantly creating a field of telekinetic energy around your feet, you negate all damage you'd otherwise take from falling.",
+            "damage_sources": [
+                "minecraft:is_fall"
+            ],
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 20,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:telekinesis",
+                        "ability": "tele_flight"
                     }
                 ]
             }
