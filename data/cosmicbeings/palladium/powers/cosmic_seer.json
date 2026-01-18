@@ -107,10 +107,10 @@
                 ]
             }
         },
-        "cosmic_beam_arms":{
+        "cosmic_arms":{
             "type": "palladium:show_both_arms",
             "icon": "minecraft:end_rod",
-            "title": "Cosmic Beam Arms",
+            "title": "Cosmic Arms",
             "bar_color": "purple",
             "hidden": true,
             "hidden_in_bar": true,
@@ -120,18 +120,28 @@
             "conditions": {
                 "enabling": [
                     {
-                        "type": "palladium:ability_enabled",
-                        "power": "cosmicbeings:cosmic_seer",
-                        "ability": "cosmic_beam"
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cosmic_seer",
+                                "ability": "cosmic_beam"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cosmic_seer",
+                                "ability": "cosmic_field"
+                            }
+                        ]
                     }
                 ],
                 "unlocking": []
             }
         },
-        "cosmic_beam_aim":{
+        "cosmic_aim":{
             "type": "palladium:aim",
             "icon": "minecraft:end_rod",
-            "title": "Cosmic Beam Aim",
+            "title": "Cosmic Aim",
             "bar_color": "purple",
             "hidden": true,
             "hidden_in_bar": true,
@@ -143,9 +153,19 @@
             "conditions": {
                 "enabling": [
                     {
-                        "type": "palladium:ability_enabled",
-                        "power": "cosmicbeings:cosmic_seer",
-                        "ability": "cosmic_beam"
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cosmic_seer",
+                                "ability": "cosmic_beam"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cosmic_seer",
+                                "ability": "cosmic_field"
+                            }
+                        ]
                     }
                 ],
                 "unlocking": []
@@ -298,16 +318,20 @@
                 "unlocking": []
             }
         },
-        "cosmic_hover":{
-            "type": "arrzenhanced:vanilla_flight",
+        "cosmic_flight":{
+            "type": "palladium:attribute_modifier",
             "icon": "minecraft:feather",
-            "title": "Cosmic Hover",
+            "title": "Cosmic Flight",
             "bar_color": "purple",
             "hidden": false,
-            "hidden_in_bar": true,
+            "hidden_in_bar": false,
             "list_index": -1,
             "gui_position": [1, 1],
-            "description": "Hover in midair by constantly exerting cosmic energy out from under you.",
+            "description": "Increase the amount of cosmic energy used when hovering to accelerate your speed while flying.",
+            "attribute": "palladium:flight_speed",
+            "amount": 1.5,
+            "operation": 0,
+            "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
             "conditions": {
                 "enabling": [],
                 "unlocking": [
@@ -324,44 +348,6 @@
                 ]
             }
         },
-        "cosmic_flight":{
-            "type": "palladium:attribute_modifier",
-            "icon": "minecraft:feather",
-            "title": "Cosmic Flight",
-            "bar_color": "purple",
-            "hidden": false,
-            "hidden_in_bar": false,
-            "list_index": 4,
-            "gui_position": [2, 1],
-            "description": "Increase the amount of cosmic energy used when hovering to accelerate your speed while flying.",
-            "attribute": "palladium:flight_speed",
-            "amount": 1.5,
-            "operation": 0,
-            "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
-            "conditions": {
-                "enabling": [
-                    {
-                        "type": "palladium:toggle",
-                        "cooldown": 0,
-                        "key_type": "key_bind",
-                        "needs_empty_hand": false,
-                        "allow_scrolling_when_crouching": true
-                    }
-                ],
-                "unlocking": [
-                    {
-                        "type": "palladium:ability_unlocked",
-                        "power": "cosmicbeings:cosmic_seer",
-                        "ability": "cosmic_hover"
-                    },
-                    {
-                        "type": "palladium:experience_level_buyable",
-                        "xp_level": 30,
-                        "flat_levels": true
-                    }
-                ]
-            }
-        },
         "gravity_well":{
             "type": "palladium:command",
             "icon": "minecraft:obsidian",
@@ -369,7 +355,7 @@
             "bar_color": "purple",
             "hidden": false,
             "hidden_in_bar": false,
-            "list_index": 5,
+            "list_index": 4,
             "gui_position": [-1, -1],
             "description": "Increase gravity for foes near you, stopping them in their tracks and blinding them.",
             "first_tick_commands": [],
@@ -411,7 +397,7 @@
             "bar_color": "purple",
             "hidden": false,
             "hidden_in_bar": false,
-            "list_index": 6,
+            "list_index": 5,
             "gui_position": [-1, -2],
             "description": "Destablize your foes further by negating their physical mass and causing them to sink endlessly into the ground.",
             "first_tick_commands": [],
@@ -424,7 +410,7 @@
                 "enabling": [
                     {
                         "type": "palladium:action",
-                        "cooldown": 0,
+                        "cooldown": 600,
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
@@ -451,7 +437,7 @@
             "bar_color": "purple",
             "hidden": false,
             "hidden_in_bar": false,
-            "list_index": 7,
+            "list_index": 6,
             "gui_position": [0, -2],
             "description": "Release all of your cosmic energy to bring forth the ultimate form of annhilation.",
             "first_tick_commands": [],
@@ -642,6 +628,24 @@
                 ]
             }
         },
+        "cosmic_aura":{
+            "type": "palladium:particles",
+            "icon": "minecraft:snowball",
+            "title": "Cosmic Aura",
+            "bar_color": "purple",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "emitter": "cosmicbeings:cosmic_aura",
+            "particle_type": "arrzenhanced:bifrost_spark",
+            "options": "value",
+            "conditions": {
+                "enabling": [],
+                "unlocking": []
+            }
+        },
         "cosmic_lightning_trail":{
             "type": "palladium:trail",
             "icon": "minecraft:lightning_rod",
@@ -654,26 +658,24 @@
             "description": "null",
             "trail": "cosmicbeings:cosmic_lightning_trail",
             "conditions": {
-                "enabling": [
+                "enabling": [],
+                "unlocking": [
                     {
-                        "type": "palladium:or",
-                        "conditions": [{
-                            "type": "arrzenhanced:speed_active"
-                        },{
-                            "type": "palladium:is_hovering_or_flying"
-                        },{
-                            "type": "palladium:ability_enabled",
-                            "power": "cosmicbeings:cosmic_seer",
-                            "ability": "cosmic_shift"
-                        }]
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_flight"
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_vibrate"
                     }
-                ],
-                "unlocking": []
+                ]
             }
         },
         "cosmic_trail_sound":{
             "type": "palladium:play_sound",
-            "icon": "minecraft:feather",
+            "icon": "minecraft:note_block",
             "title": "Cosmic Trail Sound",
             "bar_color": "purple",
             "hidden": true,
@@ -681,7 +683,32 @@
             "list_index": -1,
             "gui_position": "null",
             "description": "null",
-            "sound": "arrzenhanced:arrzenhanced.electric_conduction.beam",
+            "sound": "arrzenhanced:speedforce.loop",
+            "volume": 1,
+            "pitch": 1,
+            "looping": true,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_fast_flying"
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "cosmic_vibrate_sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:note_block",
+            "title": "Cosmic Vibrate Sound",
+            "bar_color": "purple",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "arrzenhanced:speedforce.vibrating_loop",
             "volume": 1,
             "pitch": 1,
             "looping": true,
@@ -692,7 +719,7 @@
                     {
                         "type": "palladium:ability_enabled",
                         "power": "cosmicbeings:cosmic_seer",
-                        "ability": "cosmic_lightning_trail"
+                        "ability": "cosmic_vibrate"
                     }
                 ],
                 "unlocking": []

@@ -24,7 +24,12 @@
             "gui_position": [0, 0],
             "description": "You have telekinetic abilities that allow you to manipulate the physical world with just your mind.",
             "conditions": {
-                "enabling": [],
+                "enabling": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ],
                 "unlocking": []
             }
         },
@@ -63,6 +68,10 @@
                         "energy_bar": "tele_power",
                         "min": 1,
                         "max": 200
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ],
                 "unlocking": [
@@ -112,6 +121,10 @@
                         "energy_bar": "tele_power",
                         "min": 1,
                         "max": 200
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ],
                 "unlocking": [
@@ -156,12 +169,16 @@
                         "energy_bar": "tele_power",
                         "min": 1,
                         "max": 200
-                    }   
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
                 ],
                 "unlocking": [
                     {
                         "type": "palladium:experience_level_buyable",
-                        "xp_level": 20,
+                        "xp_level": 10,
                         "flat_levels": true
                     },
                     {
@@ -201,6 +218,10 @@
                         "energy_bar": "tele_power",
                         "min": 1,
                         "max": 200
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ],
                 "unlocking": [
@@ -227,16 +248,22 @@
             "list_index": 3,
             "gui_position": [1, -1],
             "description": "Crush your foes using your telekinetic energy, stopping them in place as they struggle against an invisible force.",
-            "first_tick_commands": [],
-            "last_tick_commands": [],
+            "first_tick_commands": [
+                "scale divide pehkui:height 2 @e[distance=..20]",
+                "scale multiply pehkui:height 2 @s"
+            ],
+            "last_tick_commands": [
+                "scale multiply pehkui:height 2 @e[distance=..20]",
+                "scale divide pehkui:height 2 @s"
+            ],
             "energy_bar_usage": {
                 "energy_bar": "tele_power",
-                "amount": 50
+                "amount": 3
             },
             "commands": [
-                "effect give @e[distance=..20] slowness 15 24 true",
-                "effect give @e[distance=..20] wither 15 1 true",
-                "effect give @e[distance=..20] darkness 15 0 true",
+                "effect give @e[distance=..20] slowness 1 24 true",
+                "effect give @e[distance=..20] instant_damage 1 0 true",
+                "effect give @e[distance=..20] darkness 1 0 true",
                 "effect clear @s slowness",
                 "effect clear @s wither",
                 "effect clear @s darkness"
@@ -244,18 +271,25 @@
             "conditions": {
                 "enabling": [
                     {
-                        "type": "palladium:action",
+                        "type": "palladium:held",
                         "cooldown": 0,
                         "key_type": "key_bind",
-                        "needs_empty_hand": false,
-                        "allow_scrolling_when_crouching": true
+                        "needs_empty_hand": false
                     },
                     {
                         "type": "palladium:energy_bar",
                         "power": "cosmicbeings:telekinesis",
                         "energy_bar": "tele_power",
-                        "min": 50,
+                        "min": 1,
                         "max": 200
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ],
                 "unlocking": [
@@ -306,6 +340,10 @@
                         "energy_bar": "tele_power",
                         "min": 50,
                         "max": 200
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ],
                 "unlocking": [
@@ -341,7 +379,12 @@
                 "minecraft:is_fall"
             ],
             "conditions": {
-                "enabling": [],
+                "enabling": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ],
                 "unlocking": [
                     {
                         "type": "palladium:experience_level_buyable",
@@ -354,6 +397,90 @@
                         "ability": "tele_flight"
                     }
                 ]
+            }
+        },
+        "tele_flight_trail":{
+            "type": "palladium:trail",
+            "icon": "minecraft:blaze_rod",
+            "title": "Telekintic Flight Trail",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "trail": "cosmicbeings:tele_flight_trail",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_hovering_or_flying"
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "tele_arms":{
+            "type": "palladium:show_both_arms",
+            "icon": "minecraft:white_dye",
+            "title": "Telekinetic Arms",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:telekinesis",
+                                "ability": "tele_field"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:telekinesis",
+                                "ability": "tele_shove"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "tele_aim":{
+            "type": "palladium:aim",
+            "icon": "minecraft:white_dye",
+            "title": "Telekinetic Aim",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "time": 1,
+            "arm": "both",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:telekinesis",
+                                "ability": "tele_field"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:telekinesis",
+                                "ability": "tele_shove"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": []
             }
         }
     }

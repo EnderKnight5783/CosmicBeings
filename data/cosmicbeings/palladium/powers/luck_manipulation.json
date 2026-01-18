@@ -16,7 +16,12 @@
             "gui_position": [0, 0],
             "description": "You are able to manipulate luck and probabilities. Make yourself lucky and others unlucky.",
             "conditions": {
-                "enabling": [],
+                "enabling": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
+                    }
+                ],
                 "unlocking": []
             }
         },
@@ -35,7 +40,12 @@
             "operation": 0,
             "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
             "conditions": {
-                "enabling": [],
+                "enabling": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
+                    }
+                ],
                 "unlocking": [
                     {
                         "type": "palladium:experience_level_buyable",
@@ -63,11 +73,16 @@
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
-                "effect give @s speed infinite 1 true",
-                "effect give @s jump_boost infinite 1 true"
+                "effect give @s speed 1 1 true",
+                "effect give @s jump_boost 1 1 true"
             ],
             "conditions": {
-                "enabling": [],
+                "enabling": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
+                    }
+                ],
                 "unlocking": [
                     {
                         "type": "palladium:experience_level_buyable",
@@ -101,6 +116,10 @@
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": [
@@ -141,6 +160,10 @@
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": [
@@ -179,6 +202,10 @@
                         "type": "palladium:ability_enabled",
                         "power": "cosmicbeings:luck_manipulation",
                         "ability": "banana_peel"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": []
@@ -208,6 +235,10 @@
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": [
@@ -246,6 +277,10 @@
                         "type": "palladium:ability_enabled",
                         "power": "cosmicbeings:luck_manipulation",
                         "ability": "loony_luck"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": []
@@ -269,6 +304,10 @@
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": [
@@ -304,6 +343,10 @@
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": [
@@ -333,6 +376,10 @@
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": [
@@ -371,6 +418,10 @@
                         "type": "palladium:ability_enabled",
                         "power": "cosmicbeings:luck_manipulation",
                         "ability": "lucky_trail"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": []
@@ -393,6 +444,10 @@
                         "type": "palladium:ability_enabled",
                         "power": "cosmicbeings:luck_manipulation",
                         "ability": "lucky_trail"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:magic"
                     }
                 ],
                 "unlocking": []

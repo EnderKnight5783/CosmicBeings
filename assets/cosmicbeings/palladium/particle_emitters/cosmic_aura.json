@@ -1,0 +1,11 @@
+[
+    {
+        "body_part": "head",
+        "amount": 0.2,
+        "offset": [0, 0, 0],
+        "offset_random": [30, 30, 30],
+        "motion": [0, 0, 0],
+        "motion_random": [0, 0, 0],
+        "visible_in_first_person":true
+    }
+]
