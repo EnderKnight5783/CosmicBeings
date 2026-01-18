@@ -4,9 +4,11 @@ Current powers:
 - Cosmic Seer
 - Luck Manipulation
 
-Planned Powers:
-- Speester
+In Production:
 - Telekinetic / Telekinesis
+
+Planned Powers:
+- Speedster
 - Cryokinesis / Ice Manipulation
 
 Once enough superpowers have been made, I will publish this as an actual Forge 1.20.1 mod.
