@@ -1,0 +1,348 @@
+{
+    "name": "Luck Manipulation",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/yellow_wool.png",
+    "icon": "minecraft:rabbit_foot",
+    "gui_display_type": "tree",
+    "abilities": {
+        "luck_root":{
+            "type": "palladium:dummy",
+            "icon": "minecraft:rabbit_foot",
+            "title": "Luck Manipulation",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": -1,
+            "gui_position": [0, 0],
+            "description": "You are able to manipulate luck and probabilities. Make yourself lucky and others unlucky.",
+            "conditions": {
+                "enabling": [],
+                "unlocking": []
+            }
+        },
+        "lucky_break":{
+            "type": "palladium:attribute_modifier",
+            "icon": "minecraft:emerald",
+            "title": "Lucky Break",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": -1,
+            "gui_position": [1, 0],
+            "description": "Your luck is beyond anything else! You're far more likely to get what you want from fishing, chests, and more.",
+            "attribute": "minecraft:generic.luck",
+            "amount": 10,
+            "operation": 0,
+            "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1",
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 5,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "luck_root"
+                    }
+                ]
+            }
+        },
+        "feeling_good":{
+            "type": "palladium:command",
+            "icon": "minecraft:potion",
+            "title": "Feelin' Good",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": -1,
+            "gui_position": [1, 1],
+            "description": "You feel like you just had the best sleep of your life. I wonder what you can do now?",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "effect give @s speed infinite 1 true",
+                "effect give @s jump_boost infinite 1 true"
+            ],
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "lucky_break"
+                    }
+                ]
+            }
+        },
+        "lucky_limbs":{
+            "type": "arrzenhanced:wallclimb",
+            "icon": "minecraft:ladder",
+            "title": "Lucky Limbs",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "gui_position": [1, 2],
+            "description": "What luck! The great sleep made your arms super strong! You can now climb walls using your amazing grip strength.",
+            "speed": 0.2,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 20,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "feeling_good"
+                    }
+                ]
+            }
+        },
+        "banana_peel":{
+            "type": "palladium:command",
+            "icon": "minecraft:golden_carrot",
+            "title": "Banana Peel",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "gui_position": [-1, 0],
+            "description": "\"Whoops! Looks like someone slipped on a banana peel! I hope they aren't sitting on anything...\"",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "effect give @e[distance=..25,type=!item] minecraft:slowness 15 24 true",
+                "effect clear @e slowness"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 300,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 10,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "luck_root"
+                    }
+                ]
+            }
+        },
+        "loony_luck":{
+            "type": "palladium:command",
+            "icon": "minecraft:anvil",
+            "title": "Loony Luck",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 2,
+            "gui_position": [-1, 1],
+            "description": "\"Oh? Is that a big red X on the ground? I sure hope nobody sits on it...\"",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "execute positioned as @e[distance=..25,type=!item] run setblock ~ ~10 ~ damaged_anvil keep",
+                "setblock ~ ~10 ~ air"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 300,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 20,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "banana_peel"
+                    }
+                ]
+            }
+        },
+        "5d_chess_configure":{
+            "type": "arrzenhanced:configure_breach",
+            "icon": "minecraft:purple_stained_glass_pane",
+            "title": "5D Chess",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 3,
+            "gui_position": [-1, 2],
+            "description": "Your ability to manipulate probabilities has led you to be able to manipulate alternative realities.",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 500,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 50,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "loony_luck"
+                    }
+                ]
+            }
+        },
+        "5d_chess_open":{
+            "type": "arrzenhanced:summon_breach",
+            "icon": "minecraft:lime_stained_glass_pane",
+            "title": "5D Chess - Open",
+            "bar_color": "lime",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "gui_position": "null",
+            "description": "null",
+            "color": 2,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 500,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "5d_chess_configure"
+                    }
+                ]
+            }
+        },
+        "lucky_trail":{
+            "type": "palladium:dummy",
+            "icon": "minecraft:slime_ball",
+            "title": "After Images",
+            "bar_color": "lime",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 5,
+            "gui_position": [0, 2],
+            "description": "Your manipulation of probabilities and alternative realities has caused your body to... \"accomadate.\"",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 20,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "5d_chess_configure"
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "lucky_limbs"
+                    }
+                ]
+            }
+        },
+        "lucky_variants":{
+            "type": "palladium:vibrate",
+            "icon": "minecraft:blaze_rod",
+            "title": "Lucky Variants",
+            "bar_color": "lime",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "intensity": 10,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "lucky_trail"
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "lucky_after_images":{
+            "type": "palladium:trail",
+            "icon": "minecraft:slime_ball",
+            "title": "Lucky Trail",
+            "bar_color": "lime",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "trail": "cosmicbeings:lucky_after_trail",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "lucky_trail"
+                    }
+                ],
+                "unlocking": []
+            }
+        }
+    }
+}
