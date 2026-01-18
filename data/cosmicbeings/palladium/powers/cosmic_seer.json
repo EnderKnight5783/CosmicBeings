@@ -404,6 +404,46 @@
                 ]
             }
         },
+        "dark_hole":{
+            "type": "palladium:command",
+            "icon": "minecraft:black_concrete",
+            "title": "Dark Hole",
+            "bar_color": "purple",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 6,
+            "gui_position": [-1, -2],
+            "description": "Destablize your foes further by negating their physical mass and causing them to sink endlessly into the ground.",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "execute as @e[distance=..25] at @s run tp @s ~ ~-5 ~",
+                "tp @s ~ ~ ~"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 50,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "gravity_well"
+                    }
+                ]
+            }
+        },
         "eclipse_void": {
             "type": "palladium:command",
             "icon": "minecraft:ender_eye",
@@ -411,7 +451,7 @@
             "bar_color": "purple",
             "hidden": false,
             "hidden_in_bar": false,
-            "list_index": 6,
+            "list_index": 7,
             "gui_position": [0, -2],
             "description": "Release all of your cosmic energy to bring forth the ultimate form of annhilation.",
             "first_tick_commands": [],

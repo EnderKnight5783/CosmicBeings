@@ -1,0 +1,10 @@
+{
+    "name": "Cryokinesis",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/ice.png",
+    "icon": "minecraft:packed_ice",
+    "gui_display_type": "tree",
+    "abilities": {
+
+    }
+}
