@@ -2,7 +2,7 @@
     "type": "palladium:after_image",
     "color": "#ff00ff",
     "mimic_player": true,
-    "spacing": 1,
+    "spacing": 2,
     "lifetime": 20,
-    "opacity": 0.6
+    "opacity": 0.2
 }

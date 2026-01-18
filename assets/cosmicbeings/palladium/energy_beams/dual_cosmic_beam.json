@@ -1,6 +1,6 @@
 [
     {
-        "type": "palladium:lightning",
+        "type": "palladium:laser",
         "body_part": "right_arm",
         "segments": 5,
         "frequency": 2,
@@ -26,7 +26,7 @@
         ]
     },
     {
-        "type": "palladium:lightning",
+        "type": "palladium:laser",
         "body_part": "left_arm",
         "segments": 5,
         "frequency": 2,
@@ -52,7 +52,7 @@
         ]
     },
     {
-        "type": "palladium:lightning",
+        "type": "palladium:laser",
         "body_part": "right_arm",
         "segments": 5,
         "frequency": 2,
@@ -72,13 +72,13 @@
             "third_person": false
         },
         "offset": [
-            -2,
-            -1,
+            1,
+            -6,
             0
         ]
     },
     {
-        "type": "palladium:lightning",
+        "type": "palladium:laser",
         "body_part": "left_arm",
         "segments": 5,
         "frequency": 2,
@@ -98,8 +98,8 @@
             "third_person": false
         },
         "offset": [
-            2,
             -1,
+            -6,
             0
         ]
     }
