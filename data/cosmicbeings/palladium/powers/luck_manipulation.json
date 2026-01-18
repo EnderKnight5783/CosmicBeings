@@ -157,6 +157,33 @@
                 ]
             }
         },
+        "banana_peel_sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:blaze_rod",
+            "title": "Banana Peel Sound",
+            "bar_color": "lime",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "minecraft:block.bamboo_wood.step",
+            "volume": 1,
+            "pitch": 1,
+            "looping": false,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "banana_peel"
+                    }
+                ],
+                "unlocking": []
+            }
+        },
         "loony_luck":{
             "type": "palladium:command",
             "icon": "minecraft:anvil",
@@ -195,6 +222,33 @@
                         "ability": "banana_peel"
                     }
                 ]
+            }
+        },
+        "loony_luck_sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:anvil",
+            "title": "Loony Luck Sound",
+            "bar_color": "lime",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "minecraft:block.anvil.land",
+            "volume": 1,
+            "pitch": 1,
+            "looping": false,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:luck_manipulation",
+                        "ability": "loony_luck"
+                    }
+                ],
+                "unlocking": []
             }
         },
         "5d_chess_configure":{
