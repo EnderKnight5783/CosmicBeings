@@ -1,7 +1,7 @@
 This is a Palladium addon the adds a bunch of superpowers to the game!
 
 Current powers:
-- Cosmic Seer
+- Cosmic Seer (Overpowered Dev Superpower)
 - Luck Manipulation
 - Telekinesis
 - Cryokinesis
