@@ -3,14 +3,14 @@ This is a Palladium addon the adds a bunch of superpowers to the game!
 Current powers:
 - Cosmic Seer
 - Luck Manipulation
-
-In Production:
-- Telekinetic / Telekinesis
+- Telekinesis
+- Cryokinesis
+- Explosions
 
 Planned Powers:
-- Speedster
-- Cryokinesis / Ice Manipulation
+- Atlantean
+- Some kind of Chara rip-off :)
 
-Once enough superpowers have been made, I will publish this as an actual Forge 1.20.1 mod.
+Please note that these powers require custom items from a Forge mod that does not yet exist (I'm making it). Once the addon has sufficient content, I will update it to a Modrinth page with the actual .jar file.
 
-NOTICE: Requires Palladium and Arrze's Superhero Multiverse.
+This addon requires Palladium and Arrze's Superhero Multiverse in order to load correctly.
