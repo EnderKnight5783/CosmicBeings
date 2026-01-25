@@ -4,7 +4,750 @@
     "background": "minecraft:textures/block/ice.png",
     "icon": "minecraft:packed_ice",
     "gui_display_type": "tree",
+    "energy_bars": {
+        "cryo_power": {
+            "max": 300,
+            "auto_increase_per_tick": 5,
+            "auto_increase_interval": 20,
+            "color": "#39DDCF"
+        }
+    },
     "abilities": {
-
+        "cryo_root":{
+            "type": "palladium:dummy",
+            "icon": "minecraft:ice",
+            "title": "Cryokinesis",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": [0, 0],
+            "description": "The world suddenly feels a lot hotter... or are you just that much colder?",
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_buff":{
+            "type": "palladium:dummy",
+            "icon": "minecraft:water_bucket",
+            "title": "Cryokinetic Buff",
+            "bar_color": "light_blue",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": -1
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_in_rain"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_nerf":{
+            "type": "palladium:dummy",
+            "icon": "minecraft:flint_and_steel",
+            "title": "Cryokinetic Nerf",
+            "bar_color": "light_blue",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": 1
+            },
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_on_fire"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_aura":{
+            "type": "palladium:particles",
+            "icon": "minecraft:snowball",
+            "title": "Cryokinetic Aura",
+            "bar_color": "light_blue",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "emitter": "cosmicbeings:cosmic_aura",
+            "particle_type": "minecraft:end_rod",
+            "options": "value",
+            "conditions": {
+                "enabling": [],
+                "unlocking": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_walk"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_walk":{
+            "type": "palladium:command",
+            "icon": "minecraft:iron_boots",
+            "title": "Cryokinetic Frost",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 6,
+            "gui_position": [-1, -1],
+            "description": "Freeze water from under your feet, allowing you to walk on ice.",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": 1
+            },
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 frosted_ice replace water"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:cryokinesis",
+                        "energy_bar": "cryo_power",
+                        "min": 1,
+                        "max": 300
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_sense"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_sense":{
+            "type": "palladium:entity_glow",
+            "icon": "minecraft:blaze_powder",
+            "title": "Cryokinetic Sense",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 5,
+            "gui_position": [0, -1],
+            "description": "Sense the heat of living creatures to find their location, even through walls.",
+            "mode": "others",
+            "color": "#ff0000",
+            "distance": 50,
+            "property_key": "null",
+            "property_value": "null",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 10,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_root"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_snow":{
+            "type": "palladium:command",
+            "icon": "minecraft:white_dye",
+            "title": "Cryokinetic Storm",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 8,
+            "gui_position": [1, -1],
+            "description": "Call down a heavy rain or snow to increase your energy bar.",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": 100
+            },
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "weather thunder"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:cryokinesis",
+                        "energy_bar": "cryo_power",
+                        "min": 100,
+                        "max": 300
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_sense"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_intan":{
+            "type": "palladium:intangibility",
+            "icon": "minecraft:ice",
+            "title": "cryokinetic Intangibility",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 7,
+            "gui_position": [0, -2],
+            "description": "You can slip through ice itself, allowing you to escape tough situations.",
+            "vertical": false,
+            "whitelist": "minecraft:ice",
+            "blacklist": "null",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 20,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_walk"
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_snow"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_beam": {
+            "type": "palladium:energy_beam",
+            "icon": "minecraft:packed_ice",
+            "title": "cryokinetic Beam",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "gui_position": [1, 0],
+            "description": "Chill your opponents by shooting a beam of icy energy at them.",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": 2
+            },
+            "energy_beam": "cosmicbeings:cryo_beam",
+            "damage_type": "null",
+            "damage": 5,
+            "max_distance": 100,
+            "speed": 1,
+            "set_on_fire_seconds": 0,
+            "cause_fire": false,
+            "smelt_blocks": false,
+            "commands_on_block_hit": [
+                "fill ~ ~ ~ ~ ~ ~ minecraft:ice replace minecraft:water"
+            ],
+            "commands_on_entity_hit": [
+                "execute positioned ~ ~ ~ run effect give @e[limit=1,sort=nearest] minecraft:slowness 10 4 true"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:cryokinesis",
+                        "energy_bar": "cryo_power",
+                        "min": 2,
+                        "max": 300
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_root"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_energy_sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:blaze_rod",
+            "title": "Cyrpkinetic Beam Sound",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "arrzenhanced:arrzenhanced.hexios.beam",
+            "volume": 1,
+            "pitch": 1,
+            "looping": true,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_beam"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_field"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_arms":{
+            "type": "palladium:show_both_arms",
+            "icon": "minecraft:blaze_rod",
+            "title": "cryokinetic Arms",
+            "bar_color": "light_blue",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_beam"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_field"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_aim":{
+            "type": "palladium:aim",
+            "icon": "minecraft:blaze_rod",
+            "title": "cryokinetic Aim",
+            "bar_color": "light_blue",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "time": 10,
+            "arm": "both",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_beam"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_field"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_freeze":{
+            "type": "palladium:command",
+            "icon": "minecraft:powder_snow_bucket",
+            "title": "cryokinetic Freeze",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "gui_position": [1, 1],
+            "description": "Freeze your oppponents in place, suffocating them in icy snow.",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": 50
+            },
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "execute positioned as @e[type=!item,distance=..15] run fill ~ ~ ~ ~ ~1 ~ minecraft:powder_snow keep",
+                "effect give @e[type=!item,distance=..15] minecraft:slowness 5 24 true",
+                "effect give @e[type=!item,distance=..15] minecraft:mining_fatigue 5 24 true",
+                "fill ~ ~ ~ ~ ~2 ~ minecraft:air replace minecraft:powder_snow",
+                "effect clear @s minecraft:slowness",
+                "effect clear @s minecraft:mining_fatigue"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:cryokinesis",
+                        "energy_bar": "cryo_power",
+                        "min": 50,
+                        "max": 300
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 25,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_beam"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_absorb":{
+            "type": "palladium:command",
+            "icon": "minecraft:water_bucket",
+            "title": "cryokinetic Absorb",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "gui_position": [0, 1],
+            "description": "Abrosb all nearby water and convert it into cryokinetic energy, filling your energy bar.",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": -150
+            },
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "fill ~15 ~15 ~15 ~-15 ~-5 ~-15 air replace water"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 2000,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 30,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_freeze"
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_cube"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_field":{
+            "type": "arrzenhanced:forcefield",
+            "icon": "minecraft:shield",
+            "title": "cryokinetic Field",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 2,
+            "gui_position": [-1, 0],
+            "description": "Create a wall of ice the blocks incoming projectiles and pushes foes back.",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": 2
+            },
+            "particleOptions": "0 0.9 1 1",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:cryokinesis",
+                        "energy_bar": "cryo_power",
+                        "min": 2,
+                        "max": 300
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 15,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_root"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_cube":{
+            "type": "palladium:command",
+            "icon": "minecraft:blue_ice",
+            "title": "cryokinetic Cube",
+            "bar_color": "light_blue",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 3,
+            "gui_position": [-1, 1],
+            "description": "Create a massive cube of ice to encompass yourself and others (recommended to have Cryokinetic Intangibility and Sense turned on first).",
+            "energy_bar_usage": {
+                "energy_bar": "cryo_power",
+                "amount": 100
+            },
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "fill ~5 ~5 ~5 ~-5 ~-5 ~-5 ice keep"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    },
+                    {
+                        "type": "palladium:energy_bar",
+                        "power": "cosmicbeings:cryokinesis",
+                        "energy_bar": "cryo_power",
+                        "min": 100,
+                        "max": 300
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:experience_level_buyable",
+                        "xp_level": 25,
+                        "flat_levels": true
+                    },
+                    {
+                        "type": "palladium:ability_unlocked",
+                        "power": "cosmicbeings:cryokinesis",
+                        "ability": "cryo_field"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "cryo_sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:blaze_rod",
+            "title": "Cryokinetic Sound",
+            "bar_color": "light_blue",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "minecraft:block.snow.hit",
+            "volume": 1,
+            "pitch": 1,
+            "looping": false,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_freeze"
+                            },
+                            {
+                                "type": "palladium:ability_enabled",
+                                "power": "cosmicbeings:cryokinesis",
+                                "ability": "cryo_cube"
+                            }
+                        ]
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        }
     }
 }

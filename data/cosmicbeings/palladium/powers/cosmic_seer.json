@@ -39,7 +39,7 @@
                 "enabling": [
                     {
                     "type": "palladium:action",
-                    "cooldown": 5,
+                    "cooldown": 0,
                     "key_type": "key_bind",
                     "needs_empty_hand": false,
                     "allow_scrolling_when_crouching": true
@@ -213,7 +213,7 @@
                 "enabling": [                
                     {
                         "type": "palladium:held",
-                        "cooldown": 100,
+                        "cooldown": 0,
                         "key_type": "key_bind",
                         "needs_empty_hand": false
                     }
@@ -362,15 +362,15 @@
             "last_tick_commands": [],
             "commands": [
                 "effect give @e[distance=..25] slowness 15 24 true",
-                "effect give @e[distance=..25] glowing 15 0 true",
+                "scale divide pehkui:height 2 @e[distance=..25]",
                 "effect clear @s slowness",
-                "effect clear @s glowing"
+                "scale multiply pehkui:height 2 @s"
             ],
             "conditions": {
                 "enabling": [
                     {
                     "type": "palladium:action",
-                    "cooldown": 600,
+                    "cooldown": 0,
                     "key_type": "key_bind",
                     "needs_empty_hand": false,
                     "allow_scrolling_when_crouching": true
@@ -410,7 +410,7 @@
                 "enabling": [
                     {
                         "type": "palladium:action",
-                        "cooldown": 600,
+                        "cooldown": 0,
                         "key_type": "key_bind",
                         "needs_empty_hand": false,
                         "allow_scrolling_when_crouching": true
@@ -451,7 +451,7 @@
                 "enabling": [
                     {
                     "type": "palladium:action",
-                    "cooldown": 1200,
+                    "cooldown": 0,
                     "key_type": "key_bind",
                     "needs_empty_hand": false,
                     "allow_scrolling_when_crouching": true
@@ -720,6 +720,60 @@
                         "type": "palladium:ability_enabled",
                         "power": "cosmicbeings:cosmic_seer",
                         "ability": "cosmic_vibrate"
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "cosmic_fire_sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:blaze_rod",
+            "title": "Cosmic Meteor Sound",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "minecraft:item.firecharge.use",
+            "volume": 1,
+            "pitch": 1,
+            "looping": false,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "cosmic_meteor"
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "cosmic_eclipse:sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:blaze_rod",
+            "title": "null",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "minecraft:item.trident.thunder",
+            "volume": 1,
+            "pitch": 1,
+            "looping": false,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:cosmic_seer",
+                        "ability": "eclipse_void"
                     }
                 ],
                 "unlocking": []

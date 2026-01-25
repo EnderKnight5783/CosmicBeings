@@ -6,7 +6,7 @@
     "gui_display_type": "tree",
     "energy_bars": {
         "tele_power": {
-            "max": 200,
+            "max": 300,
             "auto_increase_per_tick": 5,
             "auto_increase_interval": 20,
             "color": "#C9D6D5"
@@ -24,13 +24,13 @@
             "gui_position": [0, 0],
             "description": "You have telekinetic abilities that allow you to manipulate the physical world with just your mind.",
             "conditions": {
-                "enabling": [
+                "enabling": [],
+                "unlocking": [
                     {
                         "type": "arrzenhanced:dampened_by",
                         "effect": "dampened:genetic"
                     }
-                ],
-                "unlocking": []
+                ]
             }
         },
         "tele_grab":{
@@ -67,11 +67,7 @@
                         "power": "cosmicbeings:telekinesis",
                         "energy_bar": "tele_power",
                         "min": 1,
-                        "max": 200
-                    },
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
+                        "max": 300
                     }
                 ],
                 "unlocking": [
@@ -84,6 +80,10 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_root"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ]
             }
@@ -120,11 +120,7 @@
                         "power": "cosmicbeings:telekinesis",
                         "energy_bar": "tele_power",
                         "min": 1,
-                        "max": 200
-                    },
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
+                        "max": 300
                     }
                 ],
                 "unlocking": [
@@ -137,6 +133,10 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_root"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ]
             }
@@ -168,11 +168,7 @@
                         "power": "cosmicbeings:telekinesis",
                         "energy_bar": "tele_power",
                         "min": 1,
-                        "max": 200
-                    },
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
+                        "max": 300
                     }
                 ],
                 "unlocking": [
@@ -185,6 +181,10 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_root"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ]
             }
@@ -217,11 +217,7 @@
                         "power": "cosmicbeings:telekinesis",
                         "energy_bar": "tele_power",
                         "min": 1,
-                        "max": 200
-                    },
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
+                        "max": 300
                     }
                 ],
                 "unlocking": [
@@ -234,6 +230,10 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_root"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ]
             }
@@ -281,15 +281,7 @@
                         "power": "cosmicbeings:telekinesis",
                         "energy_bar": "tele_power",
                         "min": 1,
-                        "max": 200
-                    },
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
-                    },
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
+                        "max": 300
                     }
                 ],
                 "unlocking": [
@@ -307,6 +299,10 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_field"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ]
             }
@@ -339,11 +335,7 @@
                         "power": "cosmicbeings:telekinesis",
                         "energy_bar": "tele_power",
                         "min": 50,
-                        "max": 200
-                    },
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
+                        "max": 300
                     }
                 ],
                 "unlocking": [
@@ -361,6 +353,42 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_flight"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
+            }
+        },
+        "tele_jump_sound":{
+            "type": "palladium:play_sound",
+            "icon": "minecraft:blaze_rod",
+            "title": "Telekinetic Jump Sound",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "sound": "minecraft:entity.rabbit.jump",
+            "volume": 100,
+            "pitch": 1,
+            "looping": false,
+            "play_self": false,
+            "play_others": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "power": "cosmicbeings:telekinesis",
+                        "ability": "tele_jump"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ]
             }
@@ -379,12 +407,7 @@
                 "minecraft:is_fall"
             ],
             "conditions": {
-                "enabling": [
-                    {
-                        "type": "arrzenhanced:dampened_by",
-                        "effect": "dampened:genetic"
-                    }
-                ],
+                "enabling": [],
                 "unlocking": [
                     {
                         "type": "palladium:experience_level_buyable",
@@ -395,6 +418,10 @@
                         "type": "palladium:ability_unlocked",
                         "power": "cosmicbeings:telekinesis",
                         "ability": "tele_flight"
+                    },
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
                     }
                 ]
             }
@@ -416,7 +443,12 @@
                         "type": "palladium:is_hovering_or_flying"
                     }
                 ],
-                "unlocking": []
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
             }
         },
         "tele_arms":{
@@ -447,7 +479,12 @@
                         ]
                     }
                 ],
-                "unlocking": []
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
             }
         },
         "tele_aim":{
@@ -480,7 +517,12 @@
                         ]
                     }
                 ],
-                "unlocking": []
+                "unlocking": [
+                    {
+                        "type": "arrzenhanced:dampened_by",
+                        "effect": "dampened:genetic"
+                    }
+                ]
             }
         }
     }

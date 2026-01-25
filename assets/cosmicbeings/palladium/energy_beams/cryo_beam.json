@@ -1,0 +1,26 @@
+{
+    "type": "palladium:laser",
+    "body_part": "head",
+    "segments": 5,
+    "frequency": 2,
+    "spread": 3,
+    "glow_color": "#002747",
+    "core_color": "#75BAF3",
+    "rainbow": false,
+    "glow_opacity": 1,
+    "core_opacity": 1,
+    "bloom": 2,
+    "size": 3,
+    "normal_transparency": false,
+    "rotation": 1,
+    "rotation_speed": 1,
+    "visibility": {
+        "first_person": true,
+        "third_person": true
+    },
+    "offset": [
+        0,
+        -3,
+        -10
+    ]
+}
